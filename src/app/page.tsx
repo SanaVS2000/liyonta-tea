@@ -16,7 +16,7 @@ export default function Home() {
         <Navbar/>
         <Cover />
       </div>
-
+      
       <section className="px-10 mb-60">
         <div className="flex flex-col items-center justify-center">
           <p className=" text-2xl text-black text-center font-times font-light w-3/5 mt-60 mx-auto">
@@ -34,7 +34,7 @@ export default function Home() {
       <section className="my-60 h-">
         <h2 className="text-4xl text-center text-green-950">Our Collection</h2>
         <p className="text-1xl text-center text-gray-600 mt-3 mx-auto w-2/5">Each tea purchase comes with organically and ethically grown loose LIYONTA tea. Carefully blended to create the perfect cup</p>
-        <div className="mx-auto mt-7 w-4/6 overflow-x-scroll">
+        <div className="mx-auto mt-7 w-5/6 overflow-x-scroll">
           <Item/> 
         </div>
       </section>

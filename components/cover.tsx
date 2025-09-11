@@ -1,17 +1,30 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion"
+
 
 export default function Cover(){
     return (
-        <section className="relative h-[100vh] w-full">
-            <Image
-                src="/home-cover.png"
-                alt="Cover"
-                fill
-                className="object-cover"
-                priority
-                />
-            <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center">
+        <section className="relative h-[100vh] w-full overflow-hidden">
+            <motion.div
+                initial={{ paddingLeft:100, paddingRight:100, paddingTop:100 }}
+                whileInView={{ paddingLeft: 0, paddingRight: 0, paddingTop:0 }}
+                transition={{ duration: 3 }}
+                viewport={{ amount: 0.5 }}
+            >
+                <div className="relative h-[100vh] w-full">
+                    <Image
+                    src="/home-cover.png"
+                    alt="Cover"
+                    fill
+                    className="object-cover"
+                    priority
+                    />
+                </div>
+            </motion.div>
+            
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h1 className="text-5xl md:text-6xl mx-auto mt-10 w-1/3 font-sans text-white text-center drop-shadow-lg font-base">
                     Want To Taste Our Tea? 
                 </h1>
