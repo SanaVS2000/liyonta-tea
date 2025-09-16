@@ -1,30 +1,26 @@
-"use client"
-import Image from "next/image";
+"use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { motion } from "framer-motion"
 
-
-export default function Cover(){
-    return (
-        <section className="relative h-[100vh] w-full overflow-hidden">
-            <motion.div
-                initial={{ paddingLeft:100, paddingRight:100, paddingTop:100 }}
-                whileInView={{ paddingLeft: 0, paddingRight: 0, paddingTop:0 }}
-                transition={{ duration: 3 }}
-                viewport={{ amount: 0.5 }}
+export default function Cover() {
+  return (
+    <section className="relative h-[100vh] w-full">
+        <motion.div
+            initial={{ borderRadius: "0%",  marginLeft: 0, marginRight: 0, marginTop: 0 }}            
+            whileInView={{ borderRadius: "2%",  marginLeft: 50, marginRight: 50, marginTop: 25}}      
+            transition={{ duration: 2, ease: "easeInOut" }}
+            viewport={{ amount: 0.8}}     
+            className="overflow-hidden h-full" 
             >
-                <div className="relative h-[100vh] w-full">
-                    <Image
-                    src="/home-cover.png"
-                    alt="Cover"
-                    fill
-                    className="object-cover"
-                    priority
-                    />
-                </div>
+            <img
+                src="/home-cover.png"
+                alt="cover"
+                className="w-full h-full object-cover"
+            />
             </motion.div>
-            
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
+
+
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h1 className="text-5xl md:text-6xl mx-auto mt-10 w-1/3 font-sans text-white text-center drop-shadow-lg font-base">
                     Want To Taste Our Tea? 
                 </h1>
@@ -35,5 +31,5 @@ export default function Cover(){
                 <Link className="bg-white px-3 py-1 rounded-lg mt-1" href="#">Shop Now ➔</Link>
             </div>
         </section>
-    )
+  );
 }
