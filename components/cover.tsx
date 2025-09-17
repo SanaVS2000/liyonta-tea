@@ -1,24 +1,45 @@
-"use client";
-import { motion } from "framer-motion";
+"use client"
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Cover() {
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 60) {
+        setHasScrolled(true); 
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section className="relative h-[100vh] w-full">
-        <motion.div
-            initial={{ borderRadius: "0%",  marginLeft: 0, marginRight: 0, marginTop: 0 }}            
-            whileInView={{ borderRadius: "2%",  marginLeft: 50, marginRight: 50, marginTop: 25}}      
-            transition={{ duration: 2, ease: "easeInOut" }}
-            viewport={{ amount: 0.8}}     
-            className="overflow-hidden h-full" 
-            >
-            <img
-                src="/home-cover.png"
-                alt="cover"
-                className="w-full h-full object-cover"
-            />
-            </motion.div>
-
+      <motion.div
+        initial={{ borderRadius: "0%", marginLeft: 0, marginRight: 0, marginTop: 0 }}
+        whileInView={
+          hasScrolled 
+            ? {
+                borderRadius: "2%",
+                marginLeft: 50,
+                marginRight: 50,
+                marginTop: 25,
+              }
+            : {}
+        }
+        transition={{ duration: 2, ease: "easeInOut" }}
+        viewport={{ once: false, amount: 0.6 }}
+        className="overflow-hidden h-full"
+      >
+        <img
+          src="/home-cover.png"
+          alt="cover"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h1 className="text-5xl md:text-6xl mx-auto mt-10 w-1/3 font-sans text-white text-center drop-shadow-lg font-base">
@@ -30,6 +51,6 @@ export default function Cover() {
                 </p>
                 <Link className="bg-white px-3 py-1 rounded-lg mt-1" href="#">Shop Now ➔</Link>
             </div>
-        </section>
+    </section>
   );
 }
