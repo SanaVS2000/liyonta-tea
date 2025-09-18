@@ -19,14 +19,14 @@ export default function Cover() {
   return (
     <section className="relative h-[100vh] w-full">
       <motion.div
-        initial={{ borderRadius: "0%", marginLeft: 0, marginRight: 0, marginTop: 0 }}
+        initial={{ borderRadius: "2%", marginLeft: 50, marginRight: 50, marginTop: 25 }}
         whileInView={
           hasScrolled 
             ? {
-                borderRadius: "2%",
-                marginLeft: 50,
-                marginRight: 50,
-                marginTop: 25,
+                borderRadius: "0%",
+                marginLeft: 0,
+                marginRight: 0,
+                marginTop: 0,
               }
             : {}
         }
