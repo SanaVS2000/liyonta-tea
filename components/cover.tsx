@@ -30,7 +30,7 @@ export default function Cover() {
               }
             : {}
         }
-        transition={{ duration: 2, ease: "easeInOut" }}
+        transition={{ duration: 3, ease: "easeInOut" }}
         viewport={{ once: false, amount: 0.6 }}
         className="overflow-hidden h-full"
       >
